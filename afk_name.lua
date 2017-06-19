@@ -2,7 +2,7 @@
 -- bind F7 exec magic.cfg
 
 local UPDATE_TIME = 2
-local AFK_TIME = 20 -- seconds
+local AFK_TIME = 5 * 60 -- seconds
 local NAME = "Zzzzz"
 
 local function sleep(n)
@@ -26,7 +26,7 @@ local start_time = os.time()
 
 repeat
   local time = os.time()
-  exec_magic(string.format("name %s| AFK for %.3f minutes", NAME, (AFK_TIME - time + start_time)/60.0))
+  exec_magic(string.format("name %s | Back in %.2f minutes", NAME, (AFK_TIME - time + start_time)/60.0))
   sleep(UPDATE_TIME)
 until time - start_time + UPDATE_TIME > AFK_TIME
 
