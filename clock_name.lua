@@ -14,6 +14,6 @@ while true do
   local fd = io.open(config, "w+")
   fd:write("seta name Now is ".. os.date().."\n")
   fd:close()
-  sleep(UPDATE_TIME)
   os.execute("xdotool search --class OpenArena key F7")
+  sleep(UPDATE_TIME)
 end
