@@ -1,7 +1,7 @@
 all: run
 
 run: build
-	xfce4-terminal -H -x lua run.lua
+	lua run.lua
 
 build:
 	moonc *.moon
