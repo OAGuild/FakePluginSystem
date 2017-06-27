@@ -11,7 +11,7 @@ end
 local G = P({
   [1] = "args",
   args = "]\\" * Ct(V("func") * spaces * V("arglist")),
-  func = C((P("plug") + P("unplug") + P("set"))),
+  func = C((P("plug") + P("unplug") + P("pset"))),
   arglist = V("arg") * (spaces * V("arg")) ^ 0,
   arg = V("int") / tonumber + V("string"),
   string = C((R("az") + R("AZ") + R("09") + S("._-+*/=")) ^ 1) + P("'") * V("int") * P("'"),

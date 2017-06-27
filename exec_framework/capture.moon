@@ -25,8 +25,8 @@ plugged =
   unplug: (lib) =>
     @plugins[lib] = nil
 
-  set: (lib, args) =>
-    @plugins[lib][args[1]] = args[2]
+  pset: (lib, args) =>
+    pcall -> @plugins[lib][args[1]] = args[2]
 
   ignore: (input) =>
     for i, v in pairs @ignore_list do

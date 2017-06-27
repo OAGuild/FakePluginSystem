@@ -23,8 +23,10 @@ local plugged = {
   unplug = function(self, lib)
     self.plugins[lib] = nil
   end,
-  set = function(self, lib, args)
-    self.plugins[lib][args[1]] = args[2]
+  pset = function(self, lib, args)
+    return pcall(function()
+      self.plugins[lib][args[1]] = args[2]
+    end)
   end,
   ignore = function(self, input)
     for i, v in pairs(self.ignore_list) do

@@ -5,11 +5,12 @@ do
   local _class_0
   local _base_0 = {
     last_test_say = nil,
+    msg = "test",
     handle = function(self, input)
       if input:match("test") then
         local now = os.time()
         if (not self.last_test_say) or (now - self.last_test_say > 2) then
-          exec("say ^1WARNING: ^2Some test detected!")
+          exec("say ^1WARNING: ^2" .. self.msg)
           self.last_test_say = now
         end
       end
