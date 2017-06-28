@@ -4,6 +4,7 @@ import addMessage from require "libs.say"
 class Test
   name: "Unnamed player"
   afk_time: 20
+  afk_time_start: os.clock!
   previous_update_time: 0
   update_delta: 2
 
