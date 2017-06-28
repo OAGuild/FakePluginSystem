@@ -26,7 +26,13 @@ plugged =
     @plugins[lib] = nil
 
   pset: (lib, args) =>
-    pcall -> @plugins[lib][args[1]] = args[2]
+    ok = pcall -> @plugins[lib][args[1]] = args[2]
+    if ok
+      print lib .. "." .. args[1] .. " is set to " .. args[2]
+
+  pprint: (lib, args) =>
+    pcall ->
+      exec "echo " .. lib .. "." .. args[1] .. " is set to " .. tostring(@plugins[lib][args[1]])
 
   ignore: (input) =>
     for i, v in pairs @ignore_list do

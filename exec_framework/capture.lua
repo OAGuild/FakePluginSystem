@@ -24,8 +24,16 @@ local plugged = {
     self.plugins[lib] = nil
   end,
   pset = function(self, lib, args)
-    return pcall(function()
+    local ok = pcall(function()
       self.plugins[lib][args[1]] = args[2]
+    end)
+    if ok then
+      return print(lib .. "." .. args[1] .. " is set to " .. args[2])
+    end
+  end,
+  pprint = function(self, lib, args)
+    return pcall(function()
+      return exec("echo " .. lib .. "." .. args[1] .. " is set to " .. tostring(self.plugins[lib][args[1]]))
     end)
   end,
   ignore = function(self, input)

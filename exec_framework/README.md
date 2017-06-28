@@ -22,6 +22,7 @@ Possible commands are:
 * /plug plugin_name [args] (turn on plugin)
 * /unplug plugin_name (turn off plugin)
 * /pset plugin variable value (set plugin's variable)
+* /pprint plugin variable (print plugin's variable using /echo command)
 
 These commands don't exist in OpenArena, but the script will understand you.
 

@@ -10,7 +10,7 @@ quoted = (x) -> P"'" * x * P"'"
 G = P{
   [1]: "args",
   args: "]\\" * Ct(V"func" * spaces * V"arglist"),
-  func: C (P"plug" + P"unplug" + P"pset"),
+  func: C (P"plug" + P"unplug" + P"pset" + P"pprint"),
   arglist: V"arg" * (spaces * V"arg")^0,
   arg: V"int"/tonumber + V"string",
   string: quoted(C((V"stringrange" + P" ")^0)) + C(V"stringrange"^1) + quoted(V"int"),
