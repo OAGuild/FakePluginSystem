@@ -23,6 +23,8 @@ plugged =
       exec "echo failed to load plugin " .. lib
 
   unplug: (lib) =>
+    if @plugins[lib] and @plugins[lib].exit
+      @plugins[lib]\exit!
     @plugins[lib] = nil
 
   pset: (lib, args) =>
