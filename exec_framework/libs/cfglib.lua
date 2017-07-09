@@ -13,6 +13,12 @@ This = {
       class = "OpenArena",
       key = This.CFG_RELOAD_KEY
     })
+  end,
+  hide_console = function()
+    return send_signal({
+      class = "OpenArena",
+      key = "quoteleft"
+    })
   end
 }
 return This

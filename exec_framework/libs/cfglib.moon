@@ -13,4 +13,7 @@ This =
     fd\close!
     send_signal {class: "OpenArena", key: This.CFG_RELOAD_KEY}
 
+  hide_console: ->
+    send_signal {class: "OpenArena", key:"quoteleft"}
+
 This
