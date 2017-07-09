@@ -7,6 +7,7 @@ This = {
   exec = function(cfg)
     local fd = io.open(This.CONFIG_PATH, "w+")
     fd:write(cfg)
+    fd:write("\n")
     fd:close()
     return send_signal({
       class = "OpenArena",

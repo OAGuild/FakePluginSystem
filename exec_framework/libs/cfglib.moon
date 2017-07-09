@@ -9,6 +9,7 @@ This =
   exec: (cfg) ->
     fd = io.open This.CONFIG_PATH, "w+"
     fd\write cfg
+    fd\write "\n"
     fd\close!
     send_signal {class: "OpenArena", key: This.CFG_RELOAD_KEY}
 
