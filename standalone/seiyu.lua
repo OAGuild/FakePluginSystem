@@ -5,6 +5,7 @@ say = function(text)
   if not text then
     return 
   end
+  print("saying ", text)
   local espeak_cmd = [[espeak --stdout -s250 -k18 -a50 -v female2 | play -t wav - \
   gain 3
   ]]
@@ -15,19 +16,24 @@ say = function(text)
     return _with_0
   end
 end
-local clear
-clear = function(text)
-  text = text:gsub("%^.", ""):lower()
-  return text
-end
+local timer = {
+  time = os.time(),
+  reset = function(self)
+    self.time = os.time()
+  end,
+  diff = function(self)
+    return os.time() - self.time
+  end
+}
 local fd = io.popen(OA_PATH .. " 2>&1 ", "r")
 while true do
   local input = fd:read()
   if not input then
     break
   end
-  input = clear(input)
-  if input:match("guild") then
+  input = input:gsub("%^.", ""):lower()
+  if input:match("guild") and (timer:diff() > 1) then
     say(input:gsub("guild", ""))
+    timer:reset()
   end
 end
