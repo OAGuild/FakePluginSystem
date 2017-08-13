@@ -3,10 +3,6 @@
 HOME = os.getenv"HOME"
 OA_PATH = HOME.."/app/openarena-0.8.8/openarena.x86_64"
 
-send_signal = (args) ->
-  cmd = string.format "xdotool search --class %s key %s", args.class, args.key
-  os.execute cmd
-
 say = (text) ->
   if not text
     return
