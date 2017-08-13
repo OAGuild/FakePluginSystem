@@ -55,7 +55,7 @@ while true do
     end
   end
   if (not ignore) and input:match("guild") and (timer:diff() > 1) then
-    say(input:gsub("guild", ""))
+    say(input:gsub("guild", ""):gsub("*", ""))
     timer:reset()
   end
 end

@@ -49,5 +49,5 @@ while true
       ignore = true
       break
   if (not ignore) and input\match("guild") and (timer\diff! > 1)
-    say input\gsub "guild", ""
+    say input\gsub("guild", "")\gsub("*", "")
     timer\reset!
