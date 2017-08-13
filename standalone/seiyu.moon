@@ -22,11 +22,26 @@ timer = {
 
 fd = io.popen OA_PATH .. " 2>&1 ", "r"
 
+ignores = {
+  "almost dodged"
+  "almost ate"
+  "cratered"
+  "wrong place"
+  "blew"
+  "x_x"
+  ":o"
+}
+
 while true
   input = fd\read!
   if not input
     break
   input = input\gsub("%^.", "")\lower!
-  if input\match("guild") and (timer\diff! > 1)
+  ignore = false
+  for _, v in pairs(ignores)
+    if input\match v
+      ignore = true
+      break
+  if (not ignore) and input\match("guild") and (timer\diff! > 1)
     say input\gsub "guild", ""
     timer\reset!

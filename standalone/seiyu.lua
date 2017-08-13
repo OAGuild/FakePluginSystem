@@ -26,13 +26,29 @@ local timer = {
   end
 }
 local fd = io.popen(OA_PATH .. " 2>&1 ", "r")
+local ignores = {
+  "almost dodged",
+  "almost ate",
+  "cratered",
+  "wrong place",
+  "blew",
+  "x_x",
+  ":o"
+}
 while true do
   local input = fd:read()
   if not input then
     break
   end
   input = input:gsub("%^.", ""):lower()
-  if input:match("guild") and (timer:diff() > 1) then
+  local ignore = false
+  for _, v in pairs(ignores) do
+    if input:match(v) then
+      ignore = true
+      break
+    end
+  end
+  if (not ignore) and input:match("guild") and (timer:diff() > 1) then
     say(input:gsub("guild", ""))
     timer:reset()
   end
