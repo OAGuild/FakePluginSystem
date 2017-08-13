@@ -27,9 +27,15 @@ local timer = {
 }
 local fd = io.popen(OA_PATH .. " 2>&1 ", "r")
 local ignores = {
-  "almost dodged",
-  "almost ate",
+  "rocket",
+  "electrocuted",
+  "railed",
+  "machinegunned",
+  "nailed",
+  "fragged",
+  "pummeled",
   "cratered",
+  "captured",
   "wrong place",
   "blew",
   "x_x",
