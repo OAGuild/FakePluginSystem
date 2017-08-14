@@ -24,6 +24,8 @@ fd = io.popen OA_PATH .. " 2>&1 ", "r"
 
 ignores = {
   "rocket"
+  "gunned"
+  "push"
   "plasmagun"
   "electrocuted"
   "railed"
