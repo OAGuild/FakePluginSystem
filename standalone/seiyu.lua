@@ -6,7 +6,7 @@ say = function(text)
     return 
   end
   print("saying ", text)
-  local espeak_cmd = [[espeak --stdout -s250 -k18 -a50 -v female2 | play -t wav - \
+  local espeak_cmd = [[espeak --stdout -s200 -k18 -a50 -v female2 | play -t wav - \
   gain 3
   ]]
   do
@@ -28,6 +28,7 @@ local timer = {
 local fd = io.popen(OA_PATH .. " 2>&1 ", "r")
 local ignores = {
   "rocket",
+  "plasmagun",
   "electrocuted",
   "railed",
   "machinegunned",

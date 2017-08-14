@@ -7,7 +7,7 @@ say = (text) ->
   if not text
     return
   print "saying ", text
-  espeak_cmd = [[espeak --stdout -s250 -k18 -a50 -v female2 | play -t wav - \
+  espeak_cmd = [[espeak --stdout -s200 -k18 -a50 -v female2 | play -t wav - \
   gain 3
   ]]
   with io.popen espeak_cmd, "w"
@@ -24,6 +24,7 @@ fd = io.popen OA_PATH .. " 2>&1 ", "r"
 
 ignores = {
   "rocket"
+  "plasmagun"
   "electrocuted"
   "railed"
   "machinegunned"
